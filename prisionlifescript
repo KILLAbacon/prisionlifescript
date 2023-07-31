@@ -1,0 +1,119 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+   Name = "🚨👮Alpha's Prison Life Script👮🚨",
+   LoadingTitle = "Loading Alpha's Prison Life Script...",
+   LoadingSubtitle = "by Alpha",
+   ConfigurationSaving = {
+      Enabled = false,
+      FolderName = nil, -- Create a custom folder for your hub/game
+      FileName = "Big Hub"
+   },
+   Discord = {
+      Enabled = true,
+      Invite = "QC9pWN6nXn", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+      RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+   },
+   KeySystem = true, -- Set this to true to use our key system
+   KeySettings = {
+      Title = "🚨👮Alpha's Prison Life👮🚨 | KEY",
+      Subtitle = "Get Key From The Discord Server!",
+      Note = "Get Key From Our Discord discord.gg/QC9pWN6nXn",
+      FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+      SaveKey = false, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+      GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+      Key = {"Alphakey69"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+   }
+})
+
+local TeleportTab = Window:CreateTab("🌀Teleports🌀", nil) -- Title, Image
+
+local Button = TeleportTab:CreateButton({
+   Name = "💰Criminal's Base💰",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-857.843872, 94.4760284, 2089.19067, 0.00555426674, 4.45483543e-08, -0.999984562, -3.85828933e-08, 1, 4.43347403e-08, 0.999984562, 3.83360508e-08, 0.00555426674)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "⛽Gas Station⛽",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-491.683014, 54.3937759, 1669.30811, -0.940681636, -3.93360367e-08, -0.33929047, -3.38057582e-08, 1, -2.22098109e-08, 0.33929047, -9.42238998e-09, -0.940681636)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🔫Armory+🔫",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(411.124664, 11.4253607, 1191.35449, -0.981797397, -2.9377464e-08, 0.189931154, -2.88445925e-08, 1, 5.57000046e-09, -0.189931154, -9.87499839e-12, -0.981797397)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "👮Cop's Base👮",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(836.765625, 99.9899826, 2267.53955, 0.999961793, -6.08850996e-08, 0.00874392781, 6.04382535e-08, 1, 5.13675928e-08, -0.00874392781, -5.08371585e-08, 0.999961793)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🏡Yard🏡",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(781.60321, 97.9999237, 2470.79126, 0.999399662, 8.69521077e-09, 0.0346458554, -9.57659996e-09, 1, 2.52740247e-08, -0.0346458554, -2.55906407e-08, 0.999399662)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "⛓️Prison⛓️",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(911.255493, 99.9899826, 2377.23608, 0.999643922, -2.81395458e-08, -0.0266837962, 2.8796368e-08, 1, 2.42307312e-08, 0.0266837962, -2.49905003e-08, 0.999643922)
+   end,
+})
+
+local Button = TeleportTab:CreateButton({
+   Name = "🚔Cop's Garage🚔",
+   Callback = function()
+            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(615.756653, 98.2000046, 2489.71729, -0.999957502, 3.8192006e-08, 0.00921991281, 3.88877268e-08, 1, 7.52791252e-08, -0.00921991281, 7.56344676e-08, -0.999957502)
+   end,
+})
+
+local PlayerTab = Window:CreateTab("🎮Player🎮", nil) -- Title, Image
+
+local Button = PlayerTab:CreateButton({
+   Name = "Infinite Jump Toggle",
+   Callback = function()
+       --Toggles the infinite jump between on or off on every script run
+_G.infinjump = not _G.infinjump
+ 
+if _G.infinJumpStarted == nil then
+	--Ensures this only runs once to save resources
+	_G.infinJumpStarted = true
+
+	--The actual infinite jump
+	local plr = game:GetService('Players').LocalPlayer
+	local m = plr:GetMouse()
+	m.KeyDown:connect(function(k)
+		if _G.infinjump then
+			if k:byte() == 32 then
+			humanoid = game:GetService'Players'.LocalPlayer.Character:FindFirstChildOfClass('Humanoid')
+			humanoid:ChangeState('Jumping')
+			wait()
+			humanoid:ChangeState('Seated')
+			end
+		end
+	end)
+end
+   end,
+})
+
+local Slider = PlayerTab:CreateSlider({
+   Name = "WalkSpeed Slider",
+   Range = {1, 1000},
+   Increment = 1,
+   Suffix = "Speed",
+   CurrentValue = 16,
+   Flag = "sliderws", -- A flag is the identifier for the configuration file, make sure every element has a different flag if you're using configuration saving to ensure no overlaps
+   Callback = function(Value)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = (Value)
+   end,
+})
